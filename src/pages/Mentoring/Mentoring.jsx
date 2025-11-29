@@ -4,7 +4,6 @@ import { mentors } from "../../mock/mockMentors.js"
 import { Container, Typography, Grid, Box} from '@mui/material'
 
 export default function Mentoring() {
-    console.log({mentors})
     return(
         <Box sx={{ py: 8, mt: '80px' }}>
             <Container maxWidth='lg'>

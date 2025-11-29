@@ -1,12 +1,50 @@
-import {Link} from 'react-router-dom'
-import {AppBar,  Toolbar, Typography, Button} from '@mui/material'
+/* import { useState } from 'react'; */
+import {Link , useLocation} from 'react-router-dom'
+import {AppBar,  Toolbar, Typography, Button, Tabs, Tab} from '@mui/material'
+import ThemeToggleButton from './Buttons/ThemeToggleButton.jsx'
+import React from 'react'
 
 export default  function NavBar() {
+    const location = useLocation()
+    /* const [ activePage, setActivePage ] = useState('/') */
     return(
         <>
             <AppBar color='#0046FF' sx={{ backgroundColor: '#a6add8ff'}}>
                 <Toolbar>
-                    <Typography
+                    <Tabs value={location.pathname}>
+                        <Tab
+                        value='/'
+                        component={Link}
+                        to='/'
+                        textColor='secondary'
+                        sx={{
+                            color: 'white'
+                        }}
+                        >
+                            NIS Connect
+                        </Tab>
+                        <Tab
+                        value='/collaborations'
+                        component={Link}
+                        to='/collaborations'
+                        >
+                            Коллаборации
+                        </Tab>
+                        <Tab
+                        value='/mentorship'
+                        component={Link}
+                        to='/mentorship'>
+                            Менторство
+                        </Tab>
+                        <Tab
+                        value='/study-hub'
+                        component={Link}
+                        to='/study-hub'>
+                            Study Hub
+                        </Tab>
+                    </Tabs>
+
+                    {/* <Typography
                         component={Link}
                         to='/'
                         sx={{
@@ -38,24 +76,31 @@ export default  function NavBar() {
                             0 0 2px #3a6bff,
                             0 0 4px #3a6bff
                         `,
+                        borderBottom: activePage === '/collaborations' ? '2px solid' : 'none',
+                       
                         backgroundColor: 'transparent'
-                    }}}>Коллаборации</Button>
+                    }}} onClick={() => setActivePage('/collaborations')}>Коллаборации</Button>
                     <Button color='inherit' component={Link} to='/mentorship' sx={{"&:hover": {
                         color: "#001BB7",
                         textShadow: `
                             0 0 2px #3a6bff,
                             0 0 4px #3a6bff
                         `,
+                        borderBottom: activePage === '/mentorship' ? '2px solid' : 'none',
+                        transition: 'border-bottom 0.3s ease',
                         backgroundColor: 'transparent'
-                    }}}>Менторство</Button>
+                    }}} onClick={() => setActivePage('/mentorship')}>Менторство</Button>
                     <Button color='inherit' component={Link} to='/study-hub' sx={{"&:hover": {
                         color: "#001BB7",
                         textShadow: `
                             0 0 2px #3a6bff,
                             0 0 4px #3a6bff
                         `,
+                        borderBottom: activePage === '/study-hub' ? '2px solid' : 'none',
+                        transition: 'border-bottom 0.3s ease',
                         backgroundColor: 'transparent'
-                    }}}>Study Hub</Button>
+                    }}} onClick={() => setActivePage('/study-hub')}>Study Hub</Button>
+                    <ThemeToggleButton></ThemeToggleButton> */}
                 </Toolbar>
             </AppBar>
         </>
